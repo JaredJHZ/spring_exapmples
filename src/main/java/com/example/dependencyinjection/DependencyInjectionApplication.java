@@ -1,5 +1,6 @@
 package com.example.dependencyinjection;
 
+import com.example.dependencyinjection.aop.TargetObject;
 import com.example.dependencyinjection.figuras.AreaService;
 import com.example.dependencyinjection.lifecycle.LifeCycleBean;
 import com.example.dependencyinjection.profiles.EnviromentService;
@@ -28,11 +29,14 @@ public class DependencyInjectionApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
 
-        LifeCycleBean beanAware = context.getBean(LifeCycleBean.class);
+        //LifeCycleBean beanAware = context.getBean(LifeCycleBean.class);
 
         //AreaService bean1 = context.getBean(AreaService.class);
 
         //bean1.describirAreas();
+
+        TargetObject targetObject = context.getBean(TargetObject.class);
+        targetObject.hello("world con aspectos");
 
     }
 
